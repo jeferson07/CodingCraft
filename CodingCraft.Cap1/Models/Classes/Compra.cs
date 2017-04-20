@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace CodingCraft.Cap1.Models
+namespace CodingCraft.Cap1.Models.Classes
 {
     public class Compra : EntidadeEditavel
     {
@@ -19,6 +20,9 @@ namespace CodingCraft.Cap1.Models
         [DisplayName("Data Pagamento")]
         public DateTime DataPagamento { get; set; }
 
+        public Guid FornecedorId { get; set; }
+
+        [ForeignKey("FornecedorId")]
         public virtual Fornecedor Fornecedor { get; set; }
     }
 }

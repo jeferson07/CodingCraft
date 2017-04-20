@@ -202,15 +202,15 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\Compra.cs" />
-    <Compile Include="Models\EntidadeNaoEditavel.cs" />
-    <Compile Include="Models\Fornecedor.cs" />
+    <Compile Include="Models\Classes\Compra.cs" />
+    <Compile Include="Models\Base\EntidadeNaoEditavel.cs" />
+    <Compile Include="Models\Classes\Fornecedor.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Produto.cs" />
-    <Compile Include="Models\EntidadeEditavel.cs" />
-    <Compile Include="Models\ProdutoCompra.cs" />
-    <Compile Include="Models\ProdutoParametrizacao.cs" />
-    <Compile Include="Models\UsuarioCompra.cs" />
+    <Compile Include="Models\Classes\Produto.cs" />
+    <Compile Include="Models\Base\EntidadeEditavel.cs" />
+    <Compile Include="Models\Classes\ProdutoCompra.cs" />
+    <Compile Include="Models\Classes\ProdutoParametrizacao.cs" />
+    <Compile Include="Models\Classes\UsuarioCompra.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using CodingCraft.Cap1.Models.Classes;
 
 namespace CodingCraft.Cap1.Models
 {

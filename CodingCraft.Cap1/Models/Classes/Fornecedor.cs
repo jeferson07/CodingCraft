@@ -5,19 +5,18 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace CodingCraft.Cap1.Models
+namespace CodingCraft.Cap1.Models.Classes
 {
-    public class Produto : EntidadeEditavel
+    public class Fornecedor : EntidadeEditavel
     {
         [Key]
-        public Guid ProdutoId { get; set; }
+        public Guid FornecedorId { get; set; }
         [Required]
         [StringLength(200)]
         [DisplayName("Nome")]
         public String Nome { get; set; }
 
-        public virtual ICollection<ProdutoCompra> ProdutoCompras { get; set; }
-        public virtual ICollection<ProdutoParametrizacao> ProdutoParametrizacoes { get; set; }
+        public virtual ICollection<Compra> Compras { get; set; }
 
     }
 }
