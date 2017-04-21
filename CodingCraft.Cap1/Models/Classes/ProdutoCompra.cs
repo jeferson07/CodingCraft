@@ -30,5 +30,6 @@ namespace CodingCraft.Cap1.Models.Classes
         public virtual Produto Produto { get; set; }
         [ForeignKey("CompraId")]
         public virtual Compra Compra { get; set; }
+
     }
 }
