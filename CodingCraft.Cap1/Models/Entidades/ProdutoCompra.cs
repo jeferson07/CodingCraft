@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace CodingCraft.Cap1.Models.Classes
+namespace CodingCraft.Cap1.Models.Entidades
 {
     public class ProdutoCompra : EntidadeEditavel
     {

@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace CodingCraft.Cap1.Models.Classes
+namespace CodingCraft.Cap1.Models.Entidades
 {
     public class ProdutoParametrizacao :EntidadeEditavel
     {
@@ -19,10 +19,6 @@ namespace CodingCraft.Cap1.Models.Classes
         [DisplayName("Valor Unitário")]
         [DataType(DataType.Currency)]
         public Decimal ValorUnitario { get; set; }
-        [DisplayName("Data Inicial")]
-        public DateTime DataInicio { get; set; }
-        [DisplayName("Data Final")]
-        public DateTime DataFim { get; set; }
         [ScaffoldColumn(false)]
         public Guid ProdutoId { get; set; }
 

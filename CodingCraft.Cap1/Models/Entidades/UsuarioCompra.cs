@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace CodingCraft.Cap1.Models.Classes
+namespace CodingCraft.Cap1.Models.Entidades
 {
     public class UsuarioCompra : EntidadeEditavel
     {
@@ -22,9 +22,13 @@ namespace CodingCraft.Cap1.Models.Classes
         public DateTime DataPagamento { get; set; }
         [ScaffoldColumn(false)]
         public Guid ProdutoParametrizacaoId { get; set; }
+        [Required]
+        [DisplayName("Valor Unitário")]
+        [DataType(DataType.Currency)]
+        public Decimal ValorUnitario { get; set; }
 
         [ForeignKey("ProdutoParametrizacaoId")]
         public virtual ProdutoParametrizacao ProdutoParametrizacao { get; set; }
-        //public virtual ApplicationUser ApplicationUser { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }

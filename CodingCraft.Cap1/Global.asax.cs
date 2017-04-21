@@ -19,10 +19,8 @@ namespace CodingCraft.Cap1
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            if (Request.IsLocal)
-            {
-                MiniProfilerEF6.Initialize();
-            }
+            MiniProfilerEF6.Initialize();
+
         }
 
         protected void Application_BeginRequest()

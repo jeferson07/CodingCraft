@@ -9,11 +9,11 @@ namespace CodingCraft.Cap1.Models
 {
     public abstract class EntidadeNaoEditavel
     {
-        [Required]
         [DisplayName("Data Criação")]
+        [ReadOnly(true)]
         public DateTime DataCriacao{ get; set; }
-        [Required]
         [DisplayName("Usuário Criação")]
+        [ReadOnly(true)]
         public String UsuarioCriacao { get; set; }
     }
 }

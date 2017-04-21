@@ -100,7 +100,7 @@ namespace CodingCraft.Cap1.Models
                     }
                     if (entry.Property("UsuarioCriacao") != null)
                     {
-                        entry.Property("UsuarioCriacao").CurrentValue = HttpContext.Current != null ? HttpContext.Current.User.Identity.Name : "" ;
+                        entry.Property("UsuarioCriacao").CurrentValue = HttpContext.Current != null ? HttpContext.Current.User.Identity.Name : "Usuario" ;
                     }
                 }
 
@@ -115,7 +115,7 @@ namespace CodingCraft.Cap1.Models
                     }
                     if (entry.Property("UsuarioModificacao") != null)
                     {
-                        entry.Property("UsuarioModificacao").CurrentValue = HttpContext.Current != null ? HttpContext.Current.User.Identity.Name : "";
+                        entry.Property("UsuarioModificacao").CurrentValue = HttpContext.Current != null ? HttpContext.Current.User.Identity.Name : "Usuario";
                     }
                 }
             }

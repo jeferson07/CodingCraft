@@ -10,7 +10,7 @@ namespace CodingCraft.Cap1.Models
     public abstract class EntidadeEditavel : EntidadeNaoEditavel
     {
         [DisplayName("Data Modificaçao")]
-        public DateTime DataModificacao { get; set; }
+        public DateTime? DataModificacao { get; set; }
         [DisplayName("Usuário Modificaçao")]
         public String UsuarioModificacao { get; set; }
     }
