@@ -1,0 +1,11 @@
+﻿@model CodingCraft.Cap1.Models.Entidades.ProdutoCompra
+
+<tr>
+    <td>
+        @Html.Label(Model.Produto.Nome)
+        @Html.HiddenFor(model => model.ProdutoId)
+    </td>
+    <td>@Html.EditorFor(model => model.Quantidade, new { htmlAttributes = new { @class = "form-control" } })</td>
+    <td>@Html.EditorFor(model => model.Valor, new { htmlAttributes = new { @class = "form-control" } })</td>
+    <td></td>
+</tr>

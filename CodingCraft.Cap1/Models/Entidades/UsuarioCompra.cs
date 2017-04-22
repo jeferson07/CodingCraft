@@ -20,7 +20,7 @@ namespace CodingCraft.Cap1.Models.Entidades
         public DateTime DataCompra { get; set; }
         [DisplayName("Data Pagamento")]
         public DateTime DataPagamento { get; set; }
-        [ScaffoldColumn(false)]
+        [DisplayName("Produto Parametrizacao")]
         public Guid ProdutoParametrizacaoId { get; set; }
         [Required]
         [DisplayName("Valor Unitário")]

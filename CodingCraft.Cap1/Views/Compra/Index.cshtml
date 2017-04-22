@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CodingCraft.Cap1.Models.Entidades.Compra>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fornecedor.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataCompra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataVencimento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataPagamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataModificacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsuarioModificacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataCriacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsuarioCriacao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fornecedor.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataCompra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataVencimento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataPagamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataModificacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsuarioModificacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataCriacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsuarioCriacao)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CompraId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CompraId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CompraId })
+        </td>
+    </tr>
+}
+
+</table>

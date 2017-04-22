@@ -19,7 +19,7 @@ namespace CodingCraft.Cap1.Models.Entidades
         [DisplayName("Valor Unitário")]
         [DataType(DataType.Currency)]
         public Decimal ValorUnitario { get; set; }
-        [ScaffoldColumn(false)]
+        [DisplayName("Produto")]
         public Guid ProdutoId { get; set; }
 
         [ForeignKey("ProdutoId")]

@@ -13,16 +13,18 @@ namespace CodingCraft.Cap1.Models.Entidades
         [Key]
         public Guid ProdutoCompraId { get; set; }
         [Required]
+        [Range(0, int.MaxValue, ErrorMessage = "Entre com u número válido")]
         [DisplayName("Quantidade de itens")]
         public int Quantidade{ get; set; }
         [Required]
         [DisplayName("Valor")]
+        [RegularExpression(@"\d+(\.\d{1,2})?", ErrorMessage = "Valor inválido")]
         [DataType(DataType.Currency)]
         public Decimal Valor { get; set; }
-        [ScaffoldColumn(false)]
+        [DisplayName("Produto")]
         [Index("IUQ_ProdutoCompra_ProdutoId_CompraId", IsUnique = true, Order = 1)]
         public Guid ProdutoId { get; set; }
-        [ScaffoldColumn(false)]
+        [DisplayName("Compra")]
         [Index("IUQ_ProdutoCompra_ProdutoId_CompraId", IsUnique = true, Order = 2)]
         public Guid CompraId { get; set; }
 
