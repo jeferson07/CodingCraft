@@ -214,7 +214,6 @@
     <Compile Include="Models\Entidades\Produto.cs" />
     <Compile Include="Models\Entidades\Base\EntidadeEditavel.cs" />
     <Compile Include="Models\Entidades\ProdutoCompra.cs" />
-    <Compile Include="Models\Entidades\ProdutoParametrizacao.cs" />
     <Compile Include="Models\Entidades\UsuarioCompra.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

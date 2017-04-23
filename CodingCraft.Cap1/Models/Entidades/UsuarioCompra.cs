@@ -20,15 +20,15 @@ namespace CodingCraft.Cap1.Models.Entidades
         public DateTime DataCompra { get; set; }
         [DisplayName("Data Pagamento")]
         public DateTime DataPagamento { get; set; }
-        [DisplayName("Produto Parametrizacao")]
-        public Guid ProdutoParametrizacaoId { get; set; }
+        [DisplayName("Produto")]
+        public Guid ProdutoId { get; set; }
         [Required]
         [DisplayName("Valor Unitário")]
         [DataType(DataType.Currency)]
         public Decimal ValorUnitario { get; set; }
 
-        [ForeignKey("ProdutoParametrizacaoId")]
-        public virtual ProdutoParametrizacao ProdutoParametrizacao { get; set; }
+        [ForeignKey("ProdutoId")]
+        public virtual Produto Produto { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }

@@ -29,7 +29,6 @@ namespace CodingCraft.Cap1.Models
         public DbSet<Fornecedor> Fornecedors { get; set; }
         public DbSet<Compra> Compras { get; set; }
         public DbSet<ProdutoCompra> ProdutoCompras { get; set; }
-        public DbSet<ProdutoParametrizacao> ProdutoParametrizacoes { get; set; }
         public DbSet<UsuarioCompra> UsuarioCompras { get; set; }
 
         public static ApplicationDbContext Create()

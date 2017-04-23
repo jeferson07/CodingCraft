@@ -13,11 +13,11 @@ namespace CodingCraft.Cap1.Models.Entidades
         [Key]
         public Guid ProdutoCompraId { get; set; }
         [Required]
-        [Range(0, int.MaxValue, ErrorMessage = "Entre com u número válido")]
+        [Range(0, int.MaxValue, ErrorMessage = "Entre com um número válido")]
         [DisplayName("Quantidade de itens")]
         public int Quantidade{ get; set; }
         [Required]
-        [DisplayName("Valor")]
+        [DisplayName("Valor por item")]
         //[RegularExpression(@"\d+(\.\d{1,2})?", ErrorMessage = "Valor inválido")]
         [DataType(DataType.Currency)]
         public Decimal Valor { get; set; }

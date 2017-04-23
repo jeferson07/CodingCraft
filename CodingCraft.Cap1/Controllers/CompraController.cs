@@ -50,7 +50,8 @@ namespace CodingCraft.Cap1.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public async Task<ActionResult> Create(Compra compra)
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create([Bind(Include = "CompraId,DataCompra,DataVencimento,DataPagamento,FornecedorId,DataModificacao,UsuarioModificacao,DataCriacao,UsuarioCriacao,ProdutoCompras")] Compra compra)
         {
             if (ModelState.IsValid)
             {
@@ -61,6 +62,7 @@ namespace CodingCraft.Cap1.Controllers
             }
 
             ViewBag.FornecedorId = new SelectList(db.Fornecedors, "FornecedorId", "Nome", compra.FornecedorId);
+            ViewBag.ProdutoId = new SelectList(db.Produtos, "ProdutoId", "Nome");
             return View(compra);
         }
 

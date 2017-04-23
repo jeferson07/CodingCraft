@@ -15,9 +15,16 @@ namespace CodingCraft.Cap1.Models.Entidades
         [StringLength(200)]
         [DisplayName("Nome")]
         public String Nome { get; set; }
+        [Required]
+        [DisplayName("Quantidade para Unidade")]
+        public int QuantidadeParaUnidade { get; set; }
+        [Required]
+        [DisplayName("Valor Unitário")]
+        [DataType(DataType.Currency)]
+        public Decimal ValorUnitario { get; set; }
 
         public virtual ICollection<ProdutoCompra> ProdutoCompras { get; set; }
-        public virtual ICollection<ProdutoParametrizacao> ProdutoParametrizacoes { get; set; }
+        public virtual ICollection<UsuarioCompra> UsuarioCompras { get; set; }
 
     }
 }
