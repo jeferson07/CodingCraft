@@ -50,8 +50,7 @@ namespace CodingCraft.Cap1.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "CompraId,DataCompra,DataVencimento,DataPagamento,FornecedorId,DataModificacao,UsuarioModificacao,DataCriacao,UsuarioCriacao")] Compra compra)
+        public async Task<ActionResult> Create(Compra compra)
         {
             if (ModelState.IsValid)
             {
@@ -129,6 +128,8 @@ namespace CodingCraft.Cap1.Controllers
         {
             var model = new ProdutoCompra();
             model.Produto = await db.Produtos.FindAsync(id);
+            model.ProdutoId = model.Produto.ProdutoId;
+            model.ProdutoCompraId = Guid.NewGuid();
 
             return PartialView("_PartialProdutoCompra",model);
         }

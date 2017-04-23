@@ -1,11 +1,17 @@
-﻿@model CodingCraft.Cap1.Models.Entidades.ProdutoCompra
+﻿@using HtmlHelpers.BeginCollectionItem
+@model CodingCraft.Cap1.Models.Entidades.ProdutoCompra
+
 
 <tr>
+@using (Html.BeginCollectionItem("ProdutoCompras"))
+{
     <td>
         @Html.Label(Model.Produto.Nome)
         @Html.HiddenFor(model => model.ProdutoId)
+        @Html.HiddenFor(model => model.ProdutoCompraId)
     </td>
     <td>@Html.EditorFor(model => model.Quantidade, new { htmlAttributes = new { @class = "form-control" } })</td>
     <td>@Html.EditorFor(model => model.Valor, new { htmlAttributes = new { @class = "form-control" } })</td>
-    <td></td>
+    <td><a class="btn red" onclick="$(this).parent().parent().remove();">Excluir</a></td>
+}
 </tr>

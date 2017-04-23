@@ -96,6 +96,7 @@
                         data: { id: produtoId },
                         dataType: "html"
                     }).done(function (data) {
+                        console.log(data);
                         $("#lista-produto").append(data);
                     });
 

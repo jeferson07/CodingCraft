@@ -18,7 +18,7 @@ namespace CodingCraft.Cap1.Models.Entidades
         public int Quantidade{ get; set; }
         [Required]
         [DisplayName("Valor")]
-        [RegularExpression(@"\d+(\.\d{1,2})?", ErrorMessage = "Valor inválido")]
+        //[RegularExpression(@"\d+(\.\d{1,2})?", ErrorMessage = "Valor inválido")]
         [DataType(DataType.Currency)]
         public Decimal Valor { get; set; }
         [DisplayName("Produto")]
