@@ -65,7 +65,14 @@
                     </tr>
                 </thead>
                 <tbody id="lista-produto">
-
+                    @if (Model != null)
+                    {
+                        foreach (var produtoCompra in Model.ProdutoCompras)
+                        {
+                            @Html.Partial("_PartialProdutoCompra", produtoCompra)
+                        }
+                    }
+                    
                 </tbody>
             </table>
         </fieldset>
