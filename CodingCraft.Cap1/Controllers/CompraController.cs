@@ -17,6 +17,7 @@ namespace CodingCraft.Cap1.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Compra
+        [AuthorizeAttribute]
         public async Task<ActionResult> Index()
         {
             var compras = db.Compras.Include(c => c.Fornecedor);
@@ -24,6 +25,7 @@ namespace CodingCraft.Cap1.Controllers
         }
 
         // GET: Compra/Details/5
+        [AuthorizeAttribute]
         public async Task<ActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -39,6 +41,7 @@ namespace CodingCraft.Cap1.Controllers
         }
 
         // GET: Compra/Create
+        [AuthorizeAttribute]
         public ActionResult Create()
         {
             ViewBag.FornecedorId = new SelectList(db.Fornecedors, "FornecedorId", "Nome");
@@ -51,6 +54,7 @@ namespace CodingCraft.Cap1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthorizeAttribute]
         public async Task<ActionResult> Create([Bind(Include = "CompraId,DataCompra,DataVencimento,DataPagamento,FornecedorId,DataModificacao,UsuarioModificacao,DataCriacao,UsuarioCriacao,ProdutoCompras")] Compra compra)
         {
             if (ModelState.IsValid)
@@ -67,6 +71,7 @@ namespace CodingCraft.Cap1.Controllers
         }
 
         // GET: Compra/Edit/5
+        [AuthorizeAttribute]
         public async Task<ActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -87,6 +92,7 @@ namespace CodingCraft.Cap1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthorizeAttribute]
         public async Task<ActionResult> Edit([Bind(Include = "CompraId,DataCompra,DataVencimento,DataPagamento,FornecedorId,DataModificacao,UsuarioModificacao,DataCriacao,UsuarioCriacao")] Compra compra)
         {
             if (ModelState.IsValid)
@@ -100,6 +106,7 @@ namespace CodingCraft.Cap1.Controllers
         }
 
         // GET: Compra/Delete/5
+        [AuthorizeAttribute]
         public async Task<ActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -117,6 +124,7 @@ namespace CodingCraft.Cap1.Controllers
         // POST: Compra/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [AuthorizeAttribute]
         public async Task<ActionResult> DeleteConfirmed(Guid id)
         {
             Compra compra = await db.Compras.FindAsync(id);
@@ -126,6 +134,7 @@ namespace CodingCraft.Cap1.Controllers
         }
 
         // GET: Compra/Create
+        [AuthorizeAttribute]
         public async Task<ActionResult> AdicionaProduto(Guid id)
         {
             var model = new ProdutoCompra();

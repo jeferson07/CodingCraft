@@ -17,12 +17,14 @@ namespace CodingCraft.Cap1.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Fornecedor
+        [AuthorizeAttribute]
         public async Task<ActionResult> Index()
         {
             return View(await db.Fornecedors.ToListAsync());
         }
 
         // GET: Fornecedor/Details/5
+        [AuthorizeAttribute]
         public async Task<ActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -38,6 +40,7 @@ namespace CodingCraft.Cap1.Controllers
         }
 
         // GET: Fornecedor/Create
+        [AuthorizeAttribute]
         public ActionResult Create()
         {
             return View();
@@ -48,6 +51,7 @@ namespace CodingCraft.Cap1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthorizeAttribute]
         public async Task<ActionResult> Create([Bind(Include = "FornecedorId,Nome,DataModificacao,UsuarioModificacao,DataCriacao,UsuarioCriacao")] Fornecedor fornecedor)
         {
             if (ModelState.IsValid)
@@ -62,6 +66,7 @@ namespace CodingCraft.Cap1.Controllers
         }
 
         // GET: Fornecedor/Edit/5
+        [AuthorizeAttribute]
         public async Task<ActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -81,6 +86,7 @@ namespace CodingCraft.Cap1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthorizeAttribute]
         public async Task<ActionResult> Edit([Bind(Include = "FornecedorId,Nome,DataModificacao,UsuarioModificacao,DataCriacao,UsuarioCriacao")] Fornecedor fornecedor)
         {
             if (ModelState.IsValid)
@@ -93,6 +99,7 @@ namespace CodingCraft.Cap1.Controllers
         }
 
         // GET: Fornecedor/Delete/5
+        [AuthorizeAttribute]
         public async Task<ActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -110,6 +117,7 @@ namespace CodingCraft.Cap1.Controllers
         // POST: Fornecedor/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [AuthorizeAttribute]
         public async Task<ActionResult> DeleteConfirmed(Guid id)
         {
             Fornecedor fornecedor = await db.Fornecedors.FindAsync(id);

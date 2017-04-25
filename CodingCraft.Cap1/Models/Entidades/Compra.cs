@@ -43,6 +43,7 @@ namespace CodingCraft.Cap1.Models.Entidades
             {
                 yield return new ValidationResult("Um produto só pode ser selecionado uma vez por compra", new string[] { "ProdutoCompras" });
             }
+
         }
     }
 }
