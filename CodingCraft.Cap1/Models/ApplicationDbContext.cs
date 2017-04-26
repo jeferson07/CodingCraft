@@ -26,7 +26,7 @@ namespace CodingCraft.Cap1.Models
 
 
         public DbSet<Produto> Produtos { get; set; }
-        public DbSet<Fornecedor> Fornecedors { get; set; }
+        public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<Compra> Compras { get; set; }
         public DbSet<ProdutoCompra> ProdutoCompras { get; set; }
         public DbSet<UsuarioCompra> UsuarioCompras { get; set; }

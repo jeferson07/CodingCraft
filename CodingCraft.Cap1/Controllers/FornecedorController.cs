@@ -20,7 +20,7 @@ namespace CodingCraft.Cap1.Controllers
         [AuthorizeAttribute]
         public async Task<ActionResult> Index()
         {
-            return View(await db.Fornecedors.ToListAsync());
+            return View(await db.Fornecedores.ToListAsync());
         }
 
         // GET: Fornecedor/Details/5
@@ -31,7 +31,7 @@ namespace CodingCraft.Cap1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fornecedor fornecedor = await db.Fornecedors.FindAsync(id);
+            Fornecedor fornecedor = await db.Fornecedores.FindAsync(id);
             if (fornecedor == null)
             {
                 return HttpNotFound();
@@ -57,7 +57,7 @@ namespace CodingCraft.Cap1.Controllers
             if (ModelState.IsValid)
             {
                 fornecedor.FornecedorId = Guid.NewGuid();
-                db.Fornecedors.Add(fornecedor);
+                db.Fornecedores.Add(fornecedor);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -73,7 +73,7 @@ namespace CodingCraft.Cap1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fornecedor fornecedor = await db.Fornecedors.FindAsync(id);
+            Fornecedor fornecedor = await db.Fornecedores.FindAsync(id);
             if (fornecedor == null)
             {
                 return HttpNotFound();
@@ -106,7 +106,7 @@ namespace CodingCraft.Cap1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fornecedor fornecedor = await db.Fornecedors.FindAsync(id);
+            Fornecedor fornecedor = await db.Fornecedores.FindAsync(id);
             if (fornecedor == null)
             {
                 return HttpNotFound();
@@ -120,8 +120,8 @@ namespace CodingCraft.Cap1.Controllers
         [AuthorizeAttribute]
         public async Task<ActionResult> DeleteConfirmed(Guid id)
         {
-            Fornecedor fornecedor = await db.Fornecedors.FindAsync(id);
-            db.Fornecedors.Remove(fornecedor);
+            Fornecedor fornecedor = await db.Fornecedores.FindAsync(id);
+            db.Fornecedores.Remove(fornecedor);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

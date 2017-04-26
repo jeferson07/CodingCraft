@@ -44,7 +44,7 @@ namespace CodingCraft.Cap1.Controllers
         [AuthorizeAttribute]
         public ActionResult Create()
         {
-            ViewBag.FornecedorId = new SelectList(db.Fornecedors, "FornecedorId", "Nome");
+            ViewBag.FornecedorId = new SelectList(db.Fornecedores, "FornecedorId", "Nome");
             ViewBag.ProdutoId = new SelectList(db.Produtos, "ProdutoId", "Nome");
             return View();
         }
@@ -65,7 +65,7 @@ namespace CodingCraft.Cap1.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.FornecedorId = new SelectList(db.Fornecedors, "FornecedorId", "Nome", compra.FornecedorId);
+            ViewBag.FornecedorId = new SelectList(db.Fornecedores, "FornecedorId", "Nome", compra.FornecedorId);
             ViewBag.ProdutoId = new SelectList(db.Produtos, "ProdutoId", "Nome");
             return View(compra);
         }
@@ -83,7 +83,7 @@ namespace CodingCraft.Cap1.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.FornecedorId = new SelectList(db.Fornecedors, "FornecedorId", "Nome", compra.FornecedorId);
+            ViewBag.FornecedorId = new SelectList(db.Fornecedores, "FornecedorId", "Nome", compra.FornecedorId);
             return View(compra);
         }
 
@@ -101,7 +101,7 @@ namespace CodingCraft.Cap1.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.FornecedorId = new SelectList(db.Fornecedors, "FornecedorId", "Nome", compra.FornecedorId);
+            ViewBag.FornecedorId = new SelectList(db.Fornecedores, "FornecedorId", "Nome", compra.FornecedorId);
             return View(compra);
         }
 
