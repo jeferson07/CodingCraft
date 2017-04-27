@@ -163,7 +163,7 @@ namespace CodingCraft.Cap1.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmar sua conta", "Confirme sua conta clicando <a href=\"" + callbackUrl + "\">aqui</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Fornecedor");
                 }
                 AddErrors(result);
             }
@@ -392,7 +392,7 @@ namespace CodingCraft.Cap1.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //
@@ -449,7 +449,7 @@ namespace CodingCraft.Cap1.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Fornecedor");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
