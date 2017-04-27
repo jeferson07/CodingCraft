@@ -84,6 +84,7 @@ namespace CodingCraft.Cap1.Controllers
                 return HttpNotFound();
             }
             ViewBag.FornecedorId = new SelectList(db.Fornecedores, "FornecedorId", "Nome", compra.FornecedorId);
+            ViewBag.ProdutoId = new SelectList(db.Produtos, "ProdutoId", "Nome");
             return View(compra);
         }
 
@@ -93,7 +94,7 @@ namespace CodingCraft.Cap1.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AuthorizeAttribute]
-        public async Task<ActionResult> Edit([Bind(Include = "CompraId,DataCompra,DataVencimento,DataPagamento,FornecedorId,DataModificacao,UsuarioModificacao,DataCriacao,UsuarioCriacao")] Compra compra)
+        public async Task<ActionResult> Edit([Bind(Include = "CompraId,DataCompra,DataVencimento,DataPagamento,FornecedorId,DataModificacao,UsuarioModificacao,DataCriacao,UsuarioCriacao,ProdutoCompras")] Compra compra)
         {
             if (ModelState.IsValid)
             {
@@ -102,6 +103,7 @@ namespace CodingCraft.Cap1.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.FornecedorId = new SelectList(db.Fornecedores, "FornecedorId", "Nome", compra.FornecedorId);
+            ViewBag.ProdutoId = new SelectList(db.Produtos, "ProdutoId", "Nome");
             return View(compra);
         }
 

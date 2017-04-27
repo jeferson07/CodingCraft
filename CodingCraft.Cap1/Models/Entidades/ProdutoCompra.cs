@@ -13,7 +13,7 @@ namespace CodingCraft.Cap1.Models.Entidades
         [Key]
         public Guid ProdutoCompraId { get; set; }
         [Required]
-        [Range(0, int.MaxValue, ErrorMessage = "Entre com um número válido")]
+        [Range(1, int.MaxValue, ErrorMessage = "Entre com um número válido e superior a 0")]
         [DisplayName("Quantidade de itens")]
         public int Quantidade{ get; set; }
         [Required]
