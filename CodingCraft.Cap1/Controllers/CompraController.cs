@@ -96,6 +96,8 @@ namespace CodingCraft.Cap1.Controllers
         [AuthorizeAttribute]
         public async Task<ActionResult> Edit([Bind(Include = "CompraId,DataCompra,DataVencimento,DataPagamento,FornecedorId,DataModificacao,UsuarioModificacao,DataCriacao,UsuarioCriacao,ProdutoCompras")] Compra compra)
         {
+            compra.ProdutoCompras.Select(pc => { pc.CompraId = compra.CompraId; return pc; }).ToList();
+            
             if (ModelState.IsValid)
             {
                 db.Entry(compra).State = EntityState.Modified;

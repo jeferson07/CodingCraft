@@ -1,4 +1,5 @@
-﻿using StackExchange.Profiling;
+﻿using CodingCraft.Cap1.Helpers;
+using StackExchange.Profiling;
 using StackExchange.Profiling.EntityFramework6;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,9 @@ namespace CodingCraft.Cap1
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             MiniProfilerEF6.Initialize();
+
+            ModelBinders.Binders.Add(typeof(decimal), new DecimalModelBinder());
+            ModelBinders.Binders.Add(typeof(decimal?), new DecimalModelBinder());
 
         }
 
