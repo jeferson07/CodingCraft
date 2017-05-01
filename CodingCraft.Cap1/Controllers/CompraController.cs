@@ -60,6 +60,7 @@ namespace CodingCraft.Cap1.Controllers
             if (ModelState.IsValid)
             {
                 compra.CompraId = Guid.NewGuid();
+                compra.ProdutoCompras.Select(pc => { pc.ProdutoCompraId = Guid.NewGuid(); return pc; }).ToList();
                 db.Compras.Add(compra);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -103,6 +104,20 @@ namespace CodingCraft.Cap1.Controllers
                 var list = compra.ProdutoCompras.Select(x => x.ProdutoCompraId);
                 var produtosCompraDelete = db.ProdutoCompras.Where(pc => pc.CompraId == compra.CompraId && !list.Contains(pc.ProdutoCompraId));
                 db.ProdutoCompras.RemoveRange(produtosCompraDelete);
+
+                foreach (var produtoCompra in compra.ProdutoCompras)
+                {
+                    if (produtoCompra.ProdutoCompraId == Guid.Empty)
+                    {
+                        produtoCompra.ProdutoCompraId = Guid.NewGuid();
+                        db.ProdutoCompras.Add(produtoCompra);
+                    }
+                    else
+                    {
+                        db.Entry(produtoCompra).State = EntityState.Modified;
+                    }
+                }
+
                 db.Entry(compra).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -147,7 +162,7 @@ namespace CodingCraft.Cap1.Controllers
             var model = new ProdutoCompra();
             model.Produto = await db.Produtos.FindAsync(id);
             model.ProdutoId = model.Produto.ProdutoId;
-            model.ProdutoCompraId = Guid.NewGuid();
+            //model.ProdutoCompraId = Guid.NewGuid();
 
             return PartialView("_PartialProdutoCompra",model);
         }
