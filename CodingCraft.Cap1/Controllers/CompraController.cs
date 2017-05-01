@@ -99,7 +99,10 @@ namespace CodingCraft.Cap1.Controllers
             compra.ProdutoCompras.Select(pc => { pc.CompraId = compra.CompraId; return pc; }).ToList();
             
             if (ModelState.IsValid)
-            {
+            {                
+                var list = compra.ProdutoCompras.Select(x => x.ProdutoCompraId);
+                var produtosCompraDelete = db.ProdutoCompras.Where(pc => pc.CompraId == compra.CompraId && !list.Contains(pc.ProdutoCompraId));
+                db.ProdutoCompras.RemoveRange(produtosCompraDelete);
                 db.Entry(compra).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
