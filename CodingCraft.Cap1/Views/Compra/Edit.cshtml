@@ -70,7 +70,7 @@
                             </tr>
                         </thead>
                         <tbody id="lista-produto">
-                            @if (Model != null)
+                            @if (Model?.ProdutoCompras != null)
                             {
                                 foreach (var produtoCompra in Model.ProdutoCompras)
                                 {

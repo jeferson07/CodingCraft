@@ -97,16 +97,19 @@ namespace CodingCraft.Cap1.Controllers
         [AuthorizeAttribute]
         public async Task<ActionResult> Edit([Bind(Include = "CompraId,DataCompra,DataVencimento,DataPagamento,FornecedorId,DataModificacao,UsuarioModificacao,DataCriacao,UsuarioCriacao,ProdutoCompras")] Compra compra)
         {
-            compra.ProdutoCompras.Select(pc => { pc.CompraId = compra.CompraId; return pc; }).ToList();
             
             if (ModelState.IsValid)
-            {                
+            {
+                compra.ProdutoCompras.Select(pc => { pc.CompraId = compra.CompraId; return pc; }).ToList();
+
                 var list = compra.ProdutoCompras.Select(x => x.ProdutoCompraId);
                 var produtosCompraDelete = db.ProdutoCompras.Where(pc => pc.CompraId == compra.CompraId && !list.Contains(pc.ProdutoCompraId));
                 db.ProdutoCompras.RemoveRange(produtosCompraDelete);
 
                 foreach (var produtoCompra in compra.ProdutoCompras)
                 {
+                    produtoCompra.Produto = null;
+
                     if (produtoCompra.ProdutoCompraId == Guid.Empty)
                     {
                         produtoCompra.ProdutoCompraId = Guid.NewGuid();
