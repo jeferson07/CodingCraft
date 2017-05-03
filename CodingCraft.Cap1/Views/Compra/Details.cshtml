@@ -75,6 +75,32 @@
         </dd>
 
     </dl>
+    <div class="col-md-12">
+        <fieldset id="Produtos">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>@Html.LabelFor(model => model.ProdutoCompras.FirstOrDefault().Produto, htmlAttributes: new { @class = "control-label col-md-2" })</th>
+                        <th>@Html.LabelFor(model => model.ProdutoCompras.FirstOrDefault().Quantidade, htmlAttributes: new { @class = "control-label col-md-2" })</th>
+                        <th>@Html.LabelFor(model => model.ProdutoCompras.FirstOrDefault().Valor, htmlAttributes: new { @class = "control-label col-md-2" })</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-produto">
+                    @if (Model?.ProdutoCompras != null)
+                    {
+                        foreach (var produtoCompra in Model.ProdutoCompras)
+                        {
+                            @Html.Partial("_PartialProdutoCompraDetail", produtoCompra)
+                        }
+                    }
+
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
+
+
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CompraId }) |
