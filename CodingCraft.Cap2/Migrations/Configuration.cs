@@ -5,14 +5,14 @@ namespace CodingCraft.Cap2.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CodingCraft.Cap2.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<CodingCraft.Cap2.Models.CodingCraftCap2Context>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(CodingCraft.Cap2.Models.ApplicationDbContext context)
+        protected override void Seed(CodingCraft.Cap2.Models.CodingCraftCap2Context context)
         {
             //  This method will be called after migrating to the latest version.
 
