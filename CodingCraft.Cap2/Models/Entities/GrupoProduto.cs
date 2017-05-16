@@ -21,5 +21,3 @@ namespace CodingCraft.Cap2.Models.Entities
 
     }
 }
-
-estoque), GrupoProduto(nome do produto com a especificação da estampa, a qual categoria pertence), CategoriaProduto(supergrupo de grupos de produtos), Tag(um grupo de produto
