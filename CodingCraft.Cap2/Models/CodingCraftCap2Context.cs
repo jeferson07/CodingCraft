@@ -32,3 +32,5 @@ namespace CodingCraft.Cap2.Models
             base.OnModelCreating(dbModelBuilder);
             dbModelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+    }
+}
