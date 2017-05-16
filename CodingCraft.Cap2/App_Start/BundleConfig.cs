@@ -1,4 +1,4 @@
-﻿using System.Web;
+using System.Web;
 using System.Web.Optimization;
 
 namespace CodingCraft.Cap2
@@ -19,6 +19,15 @@ namespace CodingCraft.Cap2
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            #region Foundation Bundles
+
+            //bundles.Add(Foundation.Styles());
+
+            //bundles.Add(Foundation.Scripts());
+
+            #endregion
+
+            #region Bootstrap
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
@@ -26,6 +35,8 @@ namespace CodingCraft.Cap2
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            #endregion
+
         }
     }
 }
