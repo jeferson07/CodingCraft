@@ -114,7 +114,7 @@ Add-ProjectItemViaTemplate $outputPath -Template $templateName -Model @{
 if (!$NoChildItems) {
     $controllerNameWithoutSuffix = [System.Text.RegularExpressions.Regex]::Replace($ControllerName, "Controller$", "", [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
     if ($ViewScaffolder) {
-        @("Criar", "Editar", "Excluir", "Detalhes", "Index", "_CriarOuEditar") | %{
+        @("Criar", "Editar", "Excluir", "Detalhes", "Index", "_CriarOuEditar", "_Criar_Bootstrap", "_Criar_Ink", "_Criar_Foundation") | %{
             Scaffold $ViewScaffolder -Controller $controllerNameWithoutSuffix -ViewName $_ -ModelType $foundModelType.FullName -Template $_ -Area $Area -Layout $Layout -SectionNames $SectionNames -PrimarySectionName $PrimarySectionName -ReferenceScriptLibraries:$ReferenceScriptLibraries -Project $Project -CodeLanguage $CodeLanguage -OverrideTemplateFolders $TemplateFolders -Force:$overwriteFilesExceptController
         }
     }
