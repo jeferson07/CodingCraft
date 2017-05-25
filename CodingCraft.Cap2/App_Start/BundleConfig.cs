@@ -21,9 +21,9 @@ namespace CodingCraft.Cap2
 
             #region Foundation Bundles
 
-            //bundles.Add(Foundation.Styles());
+            bundles.Add(Foundation.Styles());
 
-            //bundles.Add(Foundation.Scripts());
+            bundles.Add(Foundation.Scripts());
 
             #endregion
 
