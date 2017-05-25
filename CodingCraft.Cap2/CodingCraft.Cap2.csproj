@@ -480,15 +480,6 @@
     <Content Include="Views\Shared\_Layout_InkExample.cshtml" />
     <Content Include="Views\InkExample\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_Foundation.cshtml" />
-    <Content Include="Views\Produtos\Criar.cshtml" />
-    <Content Include="Views\Produtos\Editar.cshtml" />
-    <Content Include="Views\Produtos\Excluir.cshtml" />
-    <Content Include="Views\Produtos\Detalhes.cshtml" />
-    <Content Include="Views\Produtos\Index.cshtml" />
-    <Content Include="Views\Produtos\_CriarOuEditar.cshtml" />
-    <Content Include="Views\Produtos\_Criar_Bootstrap.cshtml" />
-    <Content Include="Views\Produtos\_Criar_Ink.cshtml" />
-    <Content Include="Views\Produtos\_Criar_Foundation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

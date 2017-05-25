@@ -31,25 +31,24 @@
 		
 	</head>
 	<body>
+        <nav class="ink-navigation">
+            <ul class="menu horizontal black">
+                <li class="heading">@Html.ActionLink("Teste Scaffold", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })<li>
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Bootstrap", "ChangeLayout", new { layout = "Bootstrap", returnUrl = this.Request.RawUrl }, null)</li>
+                <li>@Html.ActionLink("Ink", "ChangeLayout", new { layout = "Ink", returnUrl = this.Request.RawUrl }, null)</li>
+                <li>@Html.ActionLink("Foundation", "ChangeLayout", new { layout = "Foundation", returnUrl = this.Request.RawUrl }, null)</li>
+            </ul>
+        </nav>
+
 		<header class="ink-container ink-for-l">
 			<div class="ink-vspace">
 				<h1 class="">H1 heading</h1>
 				<p>Write some stuff here to let people know how great your site really is!</p>
 			</div>
 		</header>
-
-		<nav class="ink-container ink-navigation">
-			<ul class="horizontal menu orange">
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("About", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-			</ul>
-            <ul class="horizontal menu orange">
-                <li>@Html.ActionLink("Bootstrap", "ChangeLayout", new { layout = "Bootstrap", returnUrl = this.Request.RawUrl }, null)</li>
-                <li>@Html.ActionLink("Ink", "ChangeLayout", new { layout = "Ink", returnUrl = this.Request.RawUrl }, null)</li>
-                <li>@Html.ActionLink("Foundation", "ChangeLayout", new { layout = "Foundation", returnUrl = this.Request.RawUrl }, null)</li>
-            </ul>
-		</nav>
 
 		<header class="ink-container ink-for-m ink-for-s">
 			<div class="ink-vspace">
