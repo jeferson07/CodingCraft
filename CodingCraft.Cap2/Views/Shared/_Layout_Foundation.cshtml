@@ -16,6 +16,31 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+            <li class="name">
+                <h1>@Html.ActionLink("Teste Scaffold", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</h1>
+            </li>
+            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            @*@Html.Partial("_LoginPartial")*@
+
+            <!-- Left Nav Section -->
+            <ul class="left">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Bootstrap", "ChangeLayout", new { layout = "Bootstrap", returnUrl = this.Request.RawUrl }, null)</li>
+                <li>@Html.ActionLink("Ink", "ChangeLayout", new { layout = "Ink", returnUrl = this.Request.RawUrl }, null)</li>
+                <li>@Html.ActionLink("Foundation", "ChangeLayout", new { layout = "Foundation", returnUrl = this.Request.RawUrl }, null)</li>
+            </ul>
+        </section>
+    </nav>
+
     @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")
@@ -23,6 +48,8 @@
     <script>
         $(document).foundation();
     </script>
+
+
     @*Use the Scripts section to define page specific scripts*@
     @RenderSection("scripts", required: false)
 </body>

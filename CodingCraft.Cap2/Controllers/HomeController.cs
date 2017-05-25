@@ -26,5 +26,11 @@ namespace CodingCraft.Cap2.Controllers
 
             return View();
         }
+
+        public ActionResult ChangeLayout(string layout, string returnUrl)
+        {
+            Session["Layout"] = layout;
+            return Redirect(returnUrl);
+        }
     }
 }

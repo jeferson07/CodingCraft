@@ -17,13 +17,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Teste Scaffold", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Bootstrap", "ChangeLayout", new { layout = "Bootstrap", returnUrl = this.Request.RawUrl }, null)</li>
+                    <li>@Html.ActionLink("Ink", "ChangeLayout", new { layout = "Ink", returnUrl = this.Request.RawUrl }, null)</li>
+                    <li>@Html.ActionLink("Foundation", "ChangeLayout", new { layout = "Foundation", returnUrl = this.Request.RawUrl }, null)</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

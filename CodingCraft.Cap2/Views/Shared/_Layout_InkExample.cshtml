@@ -40,19 +40,15 @@
 
 		<nav class="ink-container ink-navigation">
 			<ul class="horizontal menu orange">
-				<li class="active">
-					<a href="#">Menu item 1</a>
-				</li>
-				<li>
-					<a href="#">Menu item 2</a>
-				</li>
-				<li>
-					<a href="#">Menu item 3</a>
-				</li>
-				<li>
-					<a href="#">Menu item 4</a>
-				</li>
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 			</ul>
+            <ul class="horizontal menu orange">
+                <li>@Html.ActionLink("Bootstrap", "ChangeLayout", new { layout = "Bootstrap", returnUrl = this.Request.RawUrl }, null)</li>
+                <li>@Html.ActionLink("Ink", "ChangeLayout", new { layout = "Ink", returnUrl = this.Request.RawUrl }, null)</li>
+                <li>@Html.ActionLink("Foundation", "ChangeLayout", new { layout = "Foundation", returnUrl = this.Request.RawUrl }, null)</li>
+            </ul>
 		</nav>
 
 		<header class="ink-container ink-for-m ink-for-s">

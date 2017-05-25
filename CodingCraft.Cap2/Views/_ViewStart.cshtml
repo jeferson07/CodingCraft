@@ -1,3 +1,15 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["Layout"] != null && Session["Layout"].ToString() == "Ink")
+    {
+        Layout = "~/Views/Shared/_Layout_InkExample.cshtml";
+    }
+    else if (Session["Layout"] != null && Session["Layout"].ToString() == "Foundation")
+    {
+        Layout = "~/Views/Shared/_Layout_Foundation.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
 }
