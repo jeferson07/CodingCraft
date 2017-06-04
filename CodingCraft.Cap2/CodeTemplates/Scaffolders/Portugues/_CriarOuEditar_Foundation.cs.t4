@@ -17,19 +17,41 @@
 @model <#= viewDataType.FullName #>
 
 <# } #>
+@* This partial view defines form fields that will appear when creating and editing entities *@
 
-@if (Session["Layout"] != null && Session["Layout"].ToString() == "Ink")
-{
-	@Html.Partial("_Editar_Ink", Model)
+<#
+foreach (ModelProperty property in GetModelProperties(Model.ViewDataType, false)) {
+    if (!property.IsPrimaryKey && !property.IsForeignKey && !property.IsReadOnly) {
+#>
+<div class="editor-label">
+    @Html.LabelFor(model => model.<#= property.Name #>)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.<#= property.Name #>)
+    @Html.ValidationMessageFor(model => model.<#= property.Name #>)
+</div>
+
+<#
+    }
 }
-else if (Session["Layout"] != null && Session["Layout"].ToString() == "Foundation")
-{
-    @Html.Partial("_Editar_Foundation", Model)
+#>
+<#
+foreach (RelatedEntityInfo relation in ParentRelations) {
+#>
+<div class="editor-label">
+    <#= relation.RelationName #>
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.<#= relation.RelationProperty.Name #>, ((IEnumerable<<#= relation.RelatedEntityType.FullName #>>)ViewBag.Possible<#= relation.RelationNamePlural #>).Select(option => new SelectListItem {
+        Text = <#= GetValueExpression("option", relation.RelatedEntityType) #>, 
+        Value = option.<#= relation.RelatedEntityPrimaryKeyName #>.ToString(),
+        Selected = (Model != null) && (option.<#= relation.RelatedEntityPrimaryKeyName #> == Model.<#= relation.RelationProperty.Name #>)
+    }), "Selecione...")
+    @Html.ValidationMessageFor(model => model.<#= relation.RelationProperty.Name #>)
+</div>
+<#
 }
-else
-{
-    @Html.Partial("_Editar_Bootstrap", Model)
-}
+#>
 <#+
 // Describes the information about a property on the model
 class ModelProperty {

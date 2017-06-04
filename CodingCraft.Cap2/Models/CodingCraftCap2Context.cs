@@ -18,7 +18,7 @@ namespace CodingCraft.Cap2.Models
 
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Tag> Tags { get; set; }
-        public DbSet<GrupoProduto> GruposProdutos { get; set; }
+        public DbSet<GrupoProduto> GrupoProdutos { get; set; }
         public DbSet<Venda> Vendas { get; set; }
 
 

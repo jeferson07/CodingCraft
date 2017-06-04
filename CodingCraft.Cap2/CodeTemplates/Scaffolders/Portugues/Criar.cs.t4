@@ -18,11 +18,11 @@
 
 <# } #>
 
-@if (Session["Layout"].ToString() == "Ink")
+@if (Session["Layout"] != null && Session["Layout"].ToString() == "Ink")
 {
 	@Html.Partial("_Criar_Ink", Model)
 }
-else if (Session["Layout"].ToString() == "Foundation")
+else if (Session["Layout"] != null && Session["Layout"].ToString() == "Foundation")
 {
     @Html.Partial("_Criar_Foundation", Model)
 }

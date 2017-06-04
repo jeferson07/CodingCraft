@@ -28,7 +28,7 @@ if (!String.IsNullOrEmpty(Model.Layout)) {
 #>
 }
 
-<h2><#= Model.ViewName #></h2>
+<h2>Criar</h2>
 
 <# if(Model.ReferenceScriptLibraries) { #>
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
@@ -40,16 +40,16 @@ if (!String.IsNullOrEmpty(Model.Layout)) {
     <fieldset>
         <legend><#= Model.ViewDataTypeName ?? String.Empty #></legend>
 
-		@Html.Partial("_CreateOrEdit", Model)
+		@Html.Partial("_CriarOuEditar_Foundation", Model)
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Criar" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar para Lista", "Index")
 </div>
 
 

@@ -9,7 +9,8 @@ namespace CodingCraft.Cap2.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(CodingCraft.Cap2.Models.CodingCraftCap2Context context)

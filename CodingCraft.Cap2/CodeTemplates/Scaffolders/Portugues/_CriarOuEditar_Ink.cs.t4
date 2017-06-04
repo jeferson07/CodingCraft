@@ -23,13 +23,14 @@
 foreach (ModelProperty property in GetModelProperties(Model.ViewDataType, false)) {
     if (!property.IsPrimaryKey && !property.IsForeignKey && !property.IsReadOnly) {
 #>
-<div class="editor-label">
+<div class="control-group">
     @Html.LabelFor(model => model.<#= property.Name #>)
-</div>
-<div class="editor-field">
-    @Html.EditorFor(model => model.<#= property.Name #>)
+	<div class="control">
+		@Html.EditorFor(model => model.<#= property.Name #>)
+	</div>
     @Html.ValidationMessageFor(model => model.<#= property.Name #>)
 </div>
+
 
 <#
     }
@@ -38,16 +39,16 @@ foreach (ModelProperty property in GetModelProperties(Model.ViewDataType, false)
 <#
 foreach (RelatedEntityInfo relation in ParentRelations) {
 #>
-<div class="editor-label">
+<div class="control-group">
     <#= relation.RelationName #>
-</div>
-<div class="editor-field">
-    @Html.DropDownListFor(model => model.<#= relation.RelationProperty.Name #>, ((IEnumerable<<#= relation.RelatedEntityType.FullName #>>)ViewBag.Possible<#= relation.RelationNamePlural #>).Select(option => new SelectListItem {
-        Text = <#= GetValueExpression("option", relation.RelatedEntityType) #>, 
-        Value = option.<#= relation.RelatedEntityPrimaryKeyName #>.ToString(),
-        Selected = (Model != null) && (option.<#= relation.RelatedEntityPrimaryKeyName #> == Model.<#= relation.RelationProperty.Name #>)
-    }), "Choose...")
-    @Html.ValidationMessageFor(model => model.<#= relation.RelationProperty.Name #>)
+	<div class="control">
+		@Html.DropDownListFor(model => model.<#= relation.RelationProperty.Name #>, ((IEnumerable<<#= relation.RelatedEntityType.FullName #>>)ViewBag.Possible<#= relation.RelationNamePlural #>).Select(option => new SelectListItem {
+			Text = <#= GetValueExpression("option", relation.RelatedEntityType) #>, 
+			Value = option.<#= relation.RelatedEntityPrimaryKeyName #>.ToString(),
+			Selected = (Model != null) && (option.<#= relation.RelatedEntityPrimaryKeyName #> == Model.<#= relation.RelationProperty.Name #>)
+		}), "Selecione...")
+	</div>
+	@Html.ValidationMessageFor(model => model.<#= relation.RelationProperty.Name #>)
 </div>
 <#
 }

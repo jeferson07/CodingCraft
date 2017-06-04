@@ -209,8 +209,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GrupoProdutoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -333,7 +335,7 @@
     <Content Include="CodeTemplates\Scaffolders\Portugues\Detalhes.cs.t4" />
     <Content Include="CodeTemplates\Scaffolders\Portugues\Excluir.cs.t4" />
     <Content Include="CodeTemplates\Scaffolders\Portugues\Criar.cs.t4" />
-    <Content Include="CodeTemplates\Scaffolders\Portugues\_CriarOuEditar.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\Portugues\_CriarOuEditar_Bootstrap.cs.t4" />
     <Content Include="CodeTemplates\Scaffolders\Portugues\ControllerWithContext.cs.t4" />
     <Content Include="CodeTemplates\Scaffolders\MvcScaffolding.Controller\ControllerWithContext.cs.t4" />
     <Content Include="CodeTemplates\MvcArea\Area.cs.t4" />
@@ -404,6 +406,8 @@
     <Content Include="CodeTemplates\Scaffolders\Portugues\_Criar_Ink.cs.t4" />
     <Content Include="CodeTemplates\Scaffolders\Portugues\_Criar_Bootstrap.cs.t4" />
     <Content Include="CodeTemplates\Scaffolders\Portugues\PortuguesViews.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\Portugues\_CriarOuEditar_Foundation.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\Portugues\_CriarOuEditar_Ink.cs.t4" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\ai.1.0.9-build01279.js" />
     <Content Include="Scripts\ai.1.0.9-build01279.min.js" />
@@ -480,6 +484,28 @@
     <Content Include="Views\Shared\_Layout_InkExample.cshtml" />
     <Content Include="Views\InkExample\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_Foundation.cshtml" />
+    <Content Include="Views\Produto\Criar.cshtml" />
+    <Content Include="Views\Produto\Editar.cshtml" />
+    <Content Include="Views\Produto\Excluir.cshtml" />
+    <Content Include="Views\Produto\Detalhes.cshtml" />
+    <Content Include="Views\Produto\Index.cshtml" />
+    <Content Include="Views\Produto\_Criar_Bootstrap.cshtml" />
+    <Content Include="Views\Produto\_Criar_Ink.cshtml" />
+    <Content Include="Views\Produto\_Criar_Foundation.cshtml" />
+    <Content Include="Views\Produto\_CriarOuEditar_Bootstrap.cshtml" />
+    <Content Include="Views\Produto\_CriarOuEditar_Ink.cshtml" />
+    <Content Include="Views\Produto\_CriarOuEditar_Foundation.cshtml" />
+    <Content Include="Views\GrupoProduto\Criar.cshtml" />
+    <Content Include="Views\GrupoProduto\Editar.cshtml" />
+    <Content Include="Views\GrupoProduto\Excluir.cshtml" />
+    <Content Include="Views\GrupoProduto\Detalhes.cshtml" />
+    <Content Include="Views\GrupoProduto\Index.cshtml" />
+    <Content Include="Views\GrupoProduto\_Criar_Bootstrap.cshtml" />
+    <Content Include="Views\GrupoProduto\_Criar_Ink.cshtml" />
+    <Content Include="Views\GrupoProduto\_Criar_Foundation.cshtml" />
+    <Content Include="Views\GrupoProduto\_CriarOuEditar_Bootstrap.cshtml" />
+    <Content Include="Views\GrupoProduto\_CriarOuEditar_Ink.cshtml" />
+    <Content Include="Views\GrupoProduto\_CriarOuEditar_Foundation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
