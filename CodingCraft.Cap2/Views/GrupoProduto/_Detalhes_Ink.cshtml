@@ -1,0 +1,23 @@
+@model CodingCraft.Cap2.Models.Entities.GrupoProduto
+
+@{
+    ViewBag.Title = "_Detalhes_Ink";
+}
+
+<h2>_Detalhes_Ink</h2>
+
+<fieldset>
+    <legend>GrupoProduto</legend>
+
+    <div class="display-label">Nome</div>
+    <div class="display-field">@Model.Nome</div>
+
+    <div class="display-label">Produtos</div>
+    <div class="display-field">@(Model.Produtos == null ? "None" : Model.Produtos.Count.ToString())</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id=Model.GrupoProdutoId }) |
+    @Html.ActionLink("Voltar para Lista", "Index")
+</p>
+
+

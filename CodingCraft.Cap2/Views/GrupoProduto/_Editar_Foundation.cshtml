@@ -1,0 +1,25 @@
+@model CodingCraft.Cap2.Models.Entities.GrupoProduto
+
+@{
+    ViewBag.Title = "_Editar_Foundation";
+}
+
+<h2>_Editar_Foundation</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "ink-form"})) {
+    @Html.ValidationSummary(true)
+    <div>
+        <h4>GrupoProduto</h4>
+
+        @Html.HiddenFor(model => model.GrupoProdutoId)
+		@Html.Partial("_CriarOuEditar_Foundation", Model)
+
+        <p>
+            <input type="submit" value="Salvar" class="button" />
+        </p>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Voltar para Lista", "Index")
+</div>

@@ -1,0 +1,26 @@
+@model CodingCraft.Cap2.Models.Entities.GrupoProduto
+
+@{
+    ViewBag.Title = "_Criar_Ink";
+}
+
+	<h2>Criar</h2>
+
+		@using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "ink-form"})) {
+		@Html.ValidationSummary(true)
+		<fieldset>
+			<legend>GrupoProduto</legend>
+
+			@Html.Partial("_CriarOuEditar_Ink", Model)
+
+			<p>
+				<input class="ink-button" type="submit" value="Criar" />
+			</p>
+		</fieldset>
+	}
+
+	<div>
+		@Html.ActionLink("Voltar para Lista", "Index")
+	</div>
+
+

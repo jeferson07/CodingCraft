@@ -17,66 +17,19 @@
 @model IEnumerable<<#= viewDataType.FullName #>>
 
 <# } #>
-@{
-    ViewBag.Title = "<#= Model.ViewName #>";
-<# if (!String.IsNullOrEmpty(Model.Layout)) { #>
-    Layout = "<#= Model.Layout #>";
-<# } #>
+
+@if (Session["Layout"] != null && Session["Layout"].ToString() == "Ink")
+{
+	@Html.Partial("_Index_Ink", Model)
 }
-
-<h2><#= Model.ViewName #></h2>
-
-<p>
-    @Html.ActionLink("Criar Novo", "Criar")
-</p>
-<table>
-    <tr>
-        <th></th>
-<#
-List<ModelProperty> properties = GetModelProperties(Model.ViewDataType, true);
-foreach (ModelProperty property in properties) {
-    if (!property.IsPrimaryKey && !property.IsForeignKey) {
-#>
-        <th>
-            <#= property.Name #>
-        </th>
-<#
-    }
+else if (Session["Layout"] != null && Session["Layout"].ToString() == "Foundation")
+{
+    @Html.Partial("_Index_Foundation", Model)
 }
-#>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-<# if (!String.IsNullOrEmpty(Model.PrimaryKeyName)) { #>
-        <td>
-            @Html.ActionLink("Editar", "Editar", new { id=item.<#= Model.PrimaryKeyName #> }) |
-            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.<#= Model.PrimaryKeyName #> }) |
-            @Html.ActionLink("Excluir", "Excluir", new { id=item.<#= Model.PrimaryKeyName #> })
-        </td>
-<# } else { #>
-        <td>
-            @Html.ActionLink("Editar", "Editar", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Detalhes", "Detalhes", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Excluir", "Excluir", new { /* id=item.PrimaryKey */ })
-        </td>
-<# } #>
-<#  
-foreach (ModelProperty property in properties) {
-    if (!property.IsPrimaryKey && !property.IsForeignKey) {
-#>
-        <td>
-			@<#= property.ValueExpression.Replace("Model.", "item.") #>
-        </td>
-<#
-    }
+else
+{
+    @Html.Partial("_Index_Bootstrap", Model)
 }
-#>
-    </tr>
-}
-
-</table>
-
 
 <#+
 // Describes the information about a property on the model

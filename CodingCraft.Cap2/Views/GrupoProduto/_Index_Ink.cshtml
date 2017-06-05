@@ -1,0 +1,42 @@
+@model IEnumerable<CodingCraft.Cap2.Models.Entities.GrupoProduto>
+
+@{
+    ViewBag.Title = "_Index_Ink";
+}
+
+<h2>_Index_Ink</h2>
+
+<p>
+    @Html.ActionLink("Criar Novo", "Criar")
+</p>
+<table class="ink-table alternating">
+    <thead>
+        <th></th>
+        <th class="align-left">
+            Nome
+        </th>
+        <th class="align-left">
+            Produtos
+        </th>
+    </thead>
+
+@foreach (var item in Model) {
+    <tbody>
+        <td>
+			@item.Nome
+        </td>
+        <td>
+			@(item.Produtos == null ? "None" : item.Produtos.Count.ToString())
+        </td>
+
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.GrupoProdutoId }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.GrupoProdutoId }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id=item.GrupoProdutoId })
+        </td>
+    </tbody>
+}
+
+</table>
+
+

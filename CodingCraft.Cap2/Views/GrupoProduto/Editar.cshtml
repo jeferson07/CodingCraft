@@ -1,0 +1,15 @@
+@model CodingCraft.Cap2.Models.Entities.GrupoProduto
+
+
+@if (Session["Layout"] != null && Session["Layout"].ToString() == "Ink")
+{
+	@Html.Partial("_Editar_Ink", Model)
+}
+else if (Session["Layout"] != null && Session["Layout"].ToString() == "Foundation")
+{
+    @Html.Partial("_Editar_Foundation", Model)
+}
+else
+{
+    @Html.Partial("_Editar_Bootstrap", Model)
+}

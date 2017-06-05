@@ -39,10 +39,10 @@
 <# foreach (ModelProperty property in GetModelProperties(viewDataType, false).Where(x => x.IsPrimaryKey)) { #>
         @Html.HiddenFor(model => model.<#= property.Name #>)
 <# } #>
-		@Html.Partial("_CriarOuEditarFoundation", Model)
+		@Html.Partial("_CriarOuEditar_Foundation", Model)
 
         <p>
-            <input type="submit" value="Salvar" />
+            <input type="submit" value="Salvar" class="button" />
         </p>
     </div>
 }

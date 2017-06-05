@@ -27,7 +27,7 @@ foreach (ModelProperty property in GetModelProperties(Model.ViewDataType, false)
 	<div class="large-12 columns">
 		@Html.LabelFor(model => model.<#= property.Name #>)
         @Html.EditorFor(model => model.<#= property.Name #>)
-        @Html.ValidationMessageFor(model => model.<#= property.Name #>, htmlAttributes: new { @class = "error" })
+        @Html.ValidationMessageFor(model => model.<#= property.Name #>)
 
     </div>
    
@@ -48,7 +48,7 @@ foreach (RelatedEntityInfo relation in ParentRelations) {
 			Value = option.<#= relation.RelatedEntityPrimaryKeyName #>.ToString(),
 			Selected = (Model != null) && (option.<#= relation.RelatedEntityPrimaryKeyName #> == Model.<#= relation.RelationProperty.Name #>)
 		}), "Selecione...", new { @class = "form-control" })
-		@Html.ValidationMessageFor(model => model.<#= relation.RelationProperty.Name #>, "", new { @class = "error" })
+		@Html.ValidationMessageFor(model => model.<#= relation.RelationProperty.Name #>)
 	</div>
 </div>
 <#

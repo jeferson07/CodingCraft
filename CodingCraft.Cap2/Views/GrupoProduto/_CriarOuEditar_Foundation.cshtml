@@ -1,0 +1,14 @@
+@model CodingCraft.Cap2.Models.Entities.GrupoProduto
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="row">
+	<div class="large-12 columns">
+		@Html.LabelFor(model => model.Nome)
+        @Html.EditorFor(model => model.Nome)
+        @Html.ValidationMessageFor(model => model.Nome)
+
+    </div>
+   
+</div>
+

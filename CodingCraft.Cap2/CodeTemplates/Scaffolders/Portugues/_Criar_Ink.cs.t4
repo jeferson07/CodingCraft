@@ -27,7 +27,7 @@ if (!String.IsNullOrEmpty(Model.Layout)) {
 }
 #>
 }
-<div class="ink-container">
+
 	<h2>Criar</h2>
 
 	<# if(Model.ReferenceScriptLibraries) { #>
@@ -51,7 +51,7 @@ if (!String.IsNullOrEmpty(Model.Layout)) {
 	<div>
 		@Html.ActionLink("Voltar para Lista", "Index")
 	</div>
-</div>
+
 
 <#+
 // Describes the information about a property on the model

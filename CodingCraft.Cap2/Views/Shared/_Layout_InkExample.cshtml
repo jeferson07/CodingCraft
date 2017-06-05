@@ -57,8 +57,10 @@
 			</div>
 		</header>
 
-        @RenderBody()
-		
+        <div class="ink-container">
+            @RenderBody()
+        </div>
+
         <footer>
             <div class="ink-container">
                 <nav class="ink-navigation">
@@ -70,11 +72,11 @@
                 </nav>
                 <p class="copyright">
                     All stuff reverved.<br>
-                                       Stuff is a trademark created at the Stuff that makes Stuff
+                    Stuff is a trademark created at the Stuff that makes Stuff
                 </p>
             </div>
         </footer>
 
-		@RenderSection("scripts", required: false)
-	</body>
+        @RenderSection("scripts", required: false)
+</body>
 </html>

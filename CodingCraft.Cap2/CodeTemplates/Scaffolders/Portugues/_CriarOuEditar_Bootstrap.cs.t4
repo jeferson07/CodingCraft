@@ -26,7 +26,7 @@ foreach (ModelProperty property in GetModelProperties(Model.ViewDataType, false)
 <div class="form-group">
     @Html.LabelFor(model => model.<#= property.Name #>, htmlAttributes: new { @class = "control-label col-md-2" })
 	<div class="col-md-10">
-		@Html.EditorFor(model => model.<#= property.Name #>, htmlAttributes: new { @class = "form-control" })
+		@Html.EditorFor(model => model.<#= property.Name #>, new { htmlAttributes = new { @class = "form-control" } })
 	</div>
     @Html.ValidationMessageFor(model => model.<#= property.Name #>, "", new { @class = "text-danger" })
 </div>

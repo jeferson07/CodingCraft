@@ -14,7 +14,7 @@
 <#@ import namespace="System.Reflection" #>
 <# var viewDataType = (EnvDTE.CodeType) Model.ViewDataType; #>
 <# if(viewDataType != null) { #>
-@model <#= viewDataType.FullName #>
+@model IEnumerable<<#= viewDataType.FullName #>>
 
 <# } #>
 @{
@@ -24,32 +24,60 @@
 <# } #>
 }
 
-	<h2>Editar</h2>
+<h2><#= Model.ViewName #></h2>
 
-	<# if(Model.ReferenceScriptLibraries) { #>
-	<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-	<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<p>
+    @Html.ActionLink("Criar Novo", "Criar")
+</p>
+<table class="ink-table alternating">
+    <thead>
+        <th></th>
+<#
+List<ModelProperty> properties = GetModelProperties(Model.ViewDataType, true);
+foreach (ModelProperty property in properties) {
+    if (!property.IsPrimaryKey && !property.IsForeignKey) {
+#>
+        <th class="align-left">
+            <#= property.Name #>
+        </th>
+<#
+    }
+}
+#>
+    </thead>
 
-	<# } #>
-	@using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "ink-form"})) {
-		@Html.ValidationSummary(true)
-		<fieldset>
-			<legend><#= Model.ViewDataTypeName ?? String.Empty #></legend>
+@foreach (var item in Model) {
+    <tbody>
+<#  
+foreach (ModelProperty property in properties) {
+    if (!property.IsPrimaryKey && !property.IsForeignKey) {
+#>
+        <td>
+			@<#= property.ValueExpression.Replace("Model.", "item.") #>
+        </td>
+<#
+    }
+}
+#>
 
-	<# foreach (ModelProperty property in GetModelProperties(viewDataType, false).Where(x => x.IsPrimaryKey)) { #>
-			@Html.HiddenFor(model => model.<#= property.Name #>)
-	<# } #>
-			@Html.Partial("_CriarOuEditar_Ink", Model)
+<# if (!String.IsNullOrEmpty(Model.PrimaryKeyName)) { #>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.<#= Model.PrimaryKeyName #> }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.<#= Model.PrimaryKeyName #> }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id=item.<#= Model.PrimaryKeyName #> })
+        </td>
+<# } else { #>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Excluir", "Excluir", new { /* id=item.PrimaryKey */ })
+        </td>
+<# } #>
+    </tbody>
+}
 
-			<p>
-				<input type="submit" value="Salvar" class="ink-button"/>
-			</p>
-		</fieldset>
-	}
+</table>
 
-	<div>
-		@Html.ActionLink("Voltar para Lista", "Index")
-	</div>
 
 <#+
 // Describes the information about a property on the model

@@ -17,39 +17,19 @@
 @model <#= viewDataType.FullName #>
 
 <# } #>
-@{
-    ViewBag.Title = "<#= Model.ViewName #>";
-<# if (!String.IsNullOrEmpty(Model.Layout)) { #>
-    Layout = "<#= Model.Layout #>";
-<# } #>
+
+@if (Session["Layout"] != null && Session["Layout"].ToString() == "Ink")
+{
+	@Html.Partial("_Detalhesr_Ink", Model)
 }
-
-<h2><#= Model.ViewName #></h2>
-
-<fieldset>
-    <legend><#= Model.ViewDataTypeName ?? String.Empty #></legend>
-<#
-foreach (ModelProperty property in GetModelProperties(Model.ViewDataType, true)) {
-    if (!property.IsPrimaryKey && !property.IsForeignKey) {
-#>
-
-    <div class="display-label"><#= property.Name #></div>
-    <div class="display-field">@<#= property.ValueExpression #></div>
-<#
-    }
+else if (Session["Layout"] != null && Session["Layout"].ToString() == "Foundation")
+{
+    @Html.Partial("_Detalhes_Foundation", Model)
 }
-#>
-</fieldset>
-<p>
-<# if (!String.IsNullOrEmpty(Model.PrimaryKeyName)) { #>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.<#= Model.PrimaryKeyName #> }) |
-    @Html.ActionLink("Back to List", "Index")
-<# } else { #>
-    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-<# } #>
-</p>
-
+else
+{
+    @Html.Partial("_Detalhes_Bootstrap", Model)
+}
 
 <#+
 // Describes the information about a property on the model

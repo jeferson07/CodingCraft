@@ -114,7 +114,7 @@ Add-ProjectItemViaTemplate $outputPath -Template $templateName -Model @{
 if (!$NoChildItems) {
     $controllerNameWithoutSuffix = [System.Text.RegularExpressions.Regex]::Replace($ControllerName, "Controller$", "", [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
     if ($ViewScaffolder) {
-       @("Criar", "Editar", "Excluir", "Detalhes", "Index", "_Criar_Bootstrap", "_Criar_Ink", "_Criar_Foundation", "_Editar_Bootstrap", "_Editar_Ink", "_Editar_Foundation","_CriarOuEditar_Bootstrap","_CriarOuEditar_Ink","_CriarOuEditar_Foundation") | %{
+       @("Criar", "Editar", "Excluir", "Detalhes", "Index", "_Criar_Bootstrap", "_Criar_Ink", "_Criar_Foundation", "_Editar_Bootstrap", "_Editar_Ink", "_Editar_Foundation","_CriarOuEditar_Bootstrap","_CriarOuEditar_Ink","_CriarOuEditar_Foundation","_Index_Bootstrap", "_Index_Ink", "_Index_Foundation","_Detalhes_Bootstrap", "_Detalhes_Ink", "_Detalhes_Foundation") | %{
             Scaffold $ViewScaffolder -Controller $controllerNameWithoutSuffix -ViewName $_ -ModelType $foundModelType.FullName -Template $_ -Area $Area -Layout $Layout -SectionNames $SectionNames -PrimarySectionName $PrimarySectionName -ReferenceScriptLibraries:$ReferenceScriptLibraries -Project $Project -CodeLanguage $CodeLanguage -OverrideTemplateFolders $TemplateFolders -Force:$overwriteFilesExceptController
         }
     }
