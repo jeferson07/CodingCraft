@@ -408,6 +408,10 @@
     <Content Include="CodeTemplates\Scaffolders\Portugues\PortuguesViews.ps1" />
     <Content Include="CodeTemplates\Scaffolders\Portugues\_CriarOuEditar_Foundation.cs.t4" />
     <Content Include="CodeTemplates\Scaffolders\Portugues\_CriarOuEditar_Ink.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\Portugues\_Editar_Ink.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\Portugues\_Editar_Foundation.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\Portugues\_Editar_Bootstrap.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\Portugues\Imports.include.t4" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\ai.1.0.9-build01279.js" />
     <Content Include="Scripts\ai.1.0.9-build01279.min.js" />
@@ -492,6 +496,9 @@
     <Content Include="Views\Produto\_Criar_Bootstrap.cshtml" />
     <Content Include="Views\Produto\_Criar_Ink.cshtml" />
     <Content Include="Views\Produto\_Criar_Foundation.cshtml" />
+    <Content Include="Views\Produto\_Editar_Bootstrap.cshtml" />
+    <Content Include="Views\Produto\_Editar_Ink.cshtml" />
+    <Content Include="Views\Produto\_Editar_Foundation.cshtml" />
     <Content Include="Views\Produto\_CriarOuEditar_Bootstrap.cshtml" />
     <Content Include="Views\Produto\_CriarOuEditar_Ink.cshtml" />
     <Content Include="Views\Produto\_CriarOuEditar_Foundation.cshtml" />
@@ -503,6 +510,9 @@
     <Content Include="Views\GrupoProduto\_Criar_Bootstrap.cshtml" />
     <Content Include="Views\GrupoProduto\_Criar_Ink.cshtml" />
     <Content Include="Views\GrupoProduto\_Criar_Foundation.cshtml" />
+    <Content Include="Views\GrupoProduto\_Editar_Bootstrap.cshtml" />
+    <Content Include="Views\GrupoProduto\_Editar_Ink.cshtml" />
+    <Content Include="Views\GrupoProduto\_Editar_Foundation.cshtml" />
     <Content Include="Views\GrupoProduto\_CriarOuEditar_Bootstrap.cshtml" />
     <Content Include="Views\GrupoProduto\_CriarOuEditar_Ink.cshtml" />
     <Content Include="Views\GrupoProduto\_CriarOuEditar_Foundation.cshtml" />
@@ -517,6 +527,9 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
