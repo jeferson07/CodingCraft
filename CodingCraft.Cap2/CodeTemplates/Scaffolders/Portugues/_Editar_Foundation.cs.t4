@@ -33,8 +33,8 @@
 <# } #>
 @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "ink-form"})) {
     @Html.ValidationSummary(true)
-    <fieldset>
-        <legend><#= Model.ViewDataTypeName ?? String.Empty #></legend>
+    <div>
+        <h4><#= Model.ViewDataTypeName ?? String.Empty #></h4>
 
 <# foreach (ModelProperty property in GetModelProperties(viewDataType, false).Where(x => x.IsPrimaryKey)) { #>
         @Html.HiddenFor(model => model.<#= property.Name #>)
@@ -44,7 +44,7 @@
         <p>
             <input type="submit" value="Salvar" />
         </p>
-    </fieldset>
+    </div>
 }
 
 <div>

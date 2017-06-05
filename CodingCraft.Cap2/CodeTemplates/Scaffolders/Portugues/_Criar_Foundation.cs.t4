@@ -37,15 +37,15 @@ if (!String.IsNullOrEmpty(Model.Layout)) {
 <# } #>
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
-    <fieldset>
-        <legend><#= Model.ViewDataTypeName ?? String.Empty #></legend>
+    <div>
+        <h4><#= Model.ViewDataTypeName ?? String.Empty #></h4>
 
 		@Html.Partial("_CriarOuEditar_Foundation", Model)
 
         <p>
-            <input type="submit" value="Criar" />
+            <input class="button" type="submit" value="Criar" />
         </p>
-    </fieldset>
+    </div>
 }
 
 <div>
