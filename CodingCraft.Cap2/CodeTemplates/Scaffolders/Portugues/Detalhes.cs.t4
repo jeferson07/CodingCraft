@@ -20,7 +20,7 @@
 
 @if (Session["Layout"] != null && Session["Layout"].ToString() == "Ink")
 {
-	@Html.Partial("_Detalhesr_Ink", Model)
+	@Html.Partial("_Detalhes_Ink", Model)
 }
 else if (Session["Layout"] != null && Session["Layout"].ToString() == "Foundation")
 {

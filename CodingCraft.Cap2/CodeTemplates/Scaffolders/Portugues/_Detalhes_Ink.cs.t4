@@ -24,22 +24,34 @@
 <# } #>
 }
 
-<h2><#= Model.ViewName #></h2>
 
-<fieldset>
-    <legend><#= Model.ViewDataTypeName ?? String.Empty #></legend>
+<h2><#= Model.ViewName #></h2>
+<div class="ink-grid">
+
+    <h4 clas="fw-900"><#= Model.ViewDataTypeName ?? String.Empty #></h4>
 <#
 foreach (ModelProperty property in GetModelProperties(Model.ViewDataType, true)) {
     if (!property.IsPrimaryKey && !property.IsForeignKey) {
 #>
-
-    <div class="display-label"><#= property.Name #></div>
-    <div class="display-field">@<#= property.ValueExpression #></div>
+    <div class="column-group horizontal-gutters">
+		<div class="all-20 fw-700">
+			<div class="column align-left">
+				<#= property.Name #>
+			</div>
+		</div>
+		<div class="all-80 fw-100">
+			<div class="column align-left">
+				@<#= property.ValueExpression #>
+			</div>
+		</div>
+	</div>
+    
 <#
     }
 }
 #>
-</fieldset>
+</div>
+
 <p>
 <# if (!String.IsNullOrEmpty(Model.PrimaryKeyName)) { #>
     @Html.ActionLink("Editar", "Editar", new { id=Model.<#= Model.PrimaryKeyName #> }) |

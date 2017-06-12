@@ -26,9 +26,10 @@
 
 <h2><#= Model.ViewName #></h2>
 
-<div class="">
-    <h4><#= Model.ViewDataTypeName ?? String.Empty #></h4>
-	<hr>
+<h3>Você tem certeza que deseja deletar?</h3>
+<div>
+<h4><#= Model.ViewDataTypeName ?? String.Empty #></h4>
+<hr>
 <#
 foreach (ModelProperty property in GetModelProperties(Model.ViewDataType, true)) {
     if (!property.IsPrimaryKey && !property.IsForeignKey) {
@@ -41,22 +42,17 @@ foreach (ModelProperty property in GetModelProperties(Model.ViewDataType, true))
 	<div class="small-10 columns">
         @<#= property.ValueExpression #>
     </div>
-   
-</div>
 <#
     }
 }
 #>
 </div>
-<p>
-<# if (!String.IsNullOrEmpty(Model.PrimaryKeyName)) { #>
-    @Html.ActionLink("Editar", "Editar", new { id=Model.<#= Model.PrimaryKeyName #> }) |
-    @Html.ActionLink("Voltar para Lista", "Index")
-<# } else { #>
-    @Html.ActionLink("Editar", "Editar", new { /* id=Model.PrimaryKey */ }) |
-    @Html.ActionLink("Voltar para Lista", "Index")
-<# } #>
-</p>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Voltar para lista", "Index")
+    </p>
+}
 
 
 <#+

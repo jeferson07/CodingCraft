@@ -17,37 +17,18 @@
 @model <#= viewDataType.FullName #>
 
 <# } #>
-@{
-    ViewBag.Title = "<#= Model.ViewName #>";
-<# if (!String.IsNullOrEmpty(Model.Layout)) { #>
-    Layout = "<#= Model.Layout #>";
-<# } #>
+@if (Session["Layout"] != null && Session["Layout"].ToString() == "Ink")
+{
+	@Html.Partial("_Excluir_Ink", Model)
 }
-
-<h2><#= Model.ViewName #></h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<fieldset>
-    <legend><#= Model.ViewDataTypeName ?? String.Empty #></legend>
-<#
-foreach (ModelProperty property in GetModelProperties(Model.ViewDataType, true)) {
-    if (!property.IsPrimaryKey && !property.IsForeignKey) {
-#>
-
-    <div class="display-label"><#= property.Name #></div>
-    <div class="display-field">@<#= property.ValueExpression #></div>
-<#
-    }
+else if (Session["Layout"] != null && Session["Layout"].ToString() == "Foundation")
+{
+    @Html.Partial("_Excluir_Foundation", Model)
 }
-#>
-</fieldset>
-@using (Html.BeginForm()) {
-    <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+else
+{
+    @Html.Partial("_Excluir_Bootstrap", Model)
 }
-
 
 <#+
 // Describes the information about a property on the model
