@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CodingCraft.Cap2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,9 @@ namespace CodingCraft.Cap2
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+
+            GlobalFilters.Filters.Add(new LayoutChooserAttribute());
+
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

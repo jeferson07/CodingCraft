@@ -218,6 +218,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\LayoutChooserAttribute.cs" />
     <Compile Include="Models\CodingCraftCap2Context.cs" />
     <Compile Include="Models\Entities\GrupoProduto.cs" />
     <Compile Include="Models\Entities\Produto.cs" />
